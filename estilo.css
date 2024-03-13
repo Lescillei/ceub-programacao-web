@@ -1,0 +1,12 @@
+h1, h2, h3, h4 {
+}
+
+p {
+    color: green;
+    background-color: black;
+}
+ /*comentário CSS*/
+#titulos {
+    color: blue;
+    background-color: chocolate;
+}
