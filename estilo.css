@@ -1,5 +1,6 @@
-/*h1, h2, h3, h4 {
-}*/
+h1, h2, h3, h4 {
+    color: yellow;
+}
 
 p {
     color: green;
@@ -9,4 +10,9 @@ p {
 #titulos {
     color: blue;
     background-color: chocolate;
+    padding: 50px;
+    border-top: 80px;
+    border: 10px dotted green;
+    border-radius: 50%;
+    margin: 50px 20px 8px 30px;
 }
