@@ -58,7 +58,19 @@ let meuObjetoPessoa = {
     idade: 18,
     altura: 1.70
 }
-
 console.log(meuObjetoPessoa);
 console.log("a idade da pessoa "+ meuObjetoPessoa['nome'] + " é: " + meuObjetoPessoa.idade);
 
+//Imprima no console de 1 a 5
+//1 jeito = laço for (começo; parada; incremento)
+// i = i+1 > i++
+for (let i = 1; i < 6; i++) {
+    console.log(i);
+}
+
+//2 jeito = while
+let i = 1;
+while (i < 6) {
+    console.log(i);
+    i++;
+}
