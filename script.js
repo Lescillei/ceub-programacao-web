@@ -1,4 +1,4 @@
-console.log("teste")
+/*console.log("teste")
 console.warn("teste")
 
 //var teste; = não adequado
@@ -11,9 +11,9 @@ const PI = 3.14;
 console.log(teste);
 console.log(variavelString);
 
-/*sobrescrevendo:
+sobrescrevendo:
 var > muda tipo,
-const > erro*/
+const > erro
 
 teste = "abc";
 PI = 3.15;
@@ -35,3 +35,14 @@ let texto1 = "Hello";
 let texto2 = "World!";
 let resultadoTexto = texto1 + " " + texto2;
 console.log(resultadoTexto);
+*/
+//Condicional
+let nome = "Joao";
+let idade = 18;
+let idadePermitida = 18;
+
+if (idade >= idadePermitida && nome === "Joao") {
+    console.log("Usuário pode entrar no site");
+} else {
+    console.log("Usuário não pode entrar no site");
+}
