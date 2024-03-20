@@ -46,3 +46,19 @@ if (idade >= idadePermitida && nome === "Joao") {
 } else {
     console.log("Usuário não pode entrar no site");
 }
+
+let meuArray = [1, 2, 3 ,4];
+console.log(meuArray[0]);
+console.log(meuArray);
+console.log(meuArray.length);
+
+//Objetos > nome: valor,
+let meuObjetoPessoa = {
+    nome: "joao",
+    idade: 18,
+    altura: 1.70
+}
+
+console.log(meuObjetoPessoa);
+console.log("a idade da pessoa "+ meuObjetoPessoa['nome'] + " é: " + meuObjetoPessoa.idade);
+
