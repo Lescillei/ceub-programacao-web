@@ -36,6 +36,7 @@ let texto2 = "World!";
 let resultadoTexto = texto1 + " " + texto2;
 console.log(resultadoTexto);
 */
+/*
 //Condicional
 let nome = "Joao";
 let idade = 18;
@@ -74,3 +75,17 @@ while (i < 6) {
     console.log(i);
     i++;
 }
+*/
+//Usando document > pegando do HTML
+ let conteudo;
+ conteudo = document.getElementById("paragrafo-legal");
+ conteudo.innerHTML = "<h1>Esse vem do JavaScript</h1>"
+ console.log(typeof(conteudo));
+ console.log(conteudo);
+
+ let conteudo2;
+ conteudo2 = document.getElementById("titulos");
+conteudo2.innerHTML = "<marquee>Conteúdo do JavaScript</marquee>"
+
+ console.log(typeof(conteudo2));
+ console.log(conteudo2.innerHTML);
