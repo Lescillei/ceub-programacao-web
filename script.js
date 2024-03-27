@@ -89,3 +89,20 @@ conteudo2.innerHTML = "<marquee>Conteúdo do JavaScript</marquee>"
 
  console.log(typeof(conteudo2));
  console.log(conteudo2.innerHTML);
+
+ let conteudo_classe;
+ conteudo_classe = document.querySelector(".paragrafo-classe");
+ console.log(conteudo_classe);
+
+ //Função
+ //function nomeFuncao(atributo1, atributo2) {
+ //}
+
+ function somar(number1, number2) {
+    //return number1 + number2;
+    let somanumeros = number1 + number2;
+    return somanumeros;
+}
+
+ let resultadoDaSoma = somar(1,2);
+ console.log(resultadoDaSoma)
