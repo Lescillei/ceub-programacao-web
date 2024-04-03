@@ -25,6 +25,33 @@ botaoConverter.addEventListener("click", converter);
 const botaoLimpar = document.getElementById("botao-limpar");
 botaoLimpar.addEventListener("click", limpar);
 
+document.addEventListener("keydown", function(event){
+    const keyName = 
+}), false;
+
+//Utilizando teclado
+let valorUsuario = document.getElementById("valorEntrada");
+valorUsuario.addEventListener("keypress", function(event) {
+    //Prevenir ativar default do navegador
+    console.log(event);
+    event.preventDefault();
+
+    if(event.ctrlKey == true && event.code == "KeyI") {
+        inverter();
+    }
+
+    if(event.ctrlKey == true && event.code == "KeyL") {
+        event.preventDefault();
+        limpar();
+    }
+
+    if (event.key == "Enter") {
+        alert("oi")
+        event.preventDefault();
+        converter();
+    }
+
+});
 //console.log(valoresConversao['real']['euro']);
 
 function converter () {
