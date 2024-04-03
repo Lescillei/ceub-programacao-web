@@ -1,15 +1,18 @@
 const valoresConversao = {
     real: {
         euro: 0.19,
-        dolar: 0.20
+        dolar: 0.20,
+        simbolo: "R$"
     },
     dolar: {
         real: 4.99,
-        euro: 0.92
+        euro: 0.92,
+        simbolo: "US$"
     },
     euro: {
         real: 5.40,
-        dolar: 1.08
+        dolar: 1.08,
+        simbolo: "EU"
     }
 }
 
@@ -20,15 +23,23 @@ function converter () {
     let moeda1 = document.getElementById("moeda1").value;
     let moeda2 = document.getElementById("moeda2").value;
 
-    if (moeda1==moeda2) {
+    if (moeda1 == moeda2) {
         alert("As moedas são iguais");
         return;
     }
 
+    if (valorUsuario <= 0 || valorUsuario == ""){
+        alert ("Valor não suportado");
+        return;
+    }
+
+    let simbolo = valoresConversao[moeda2]["simbolo"];
+
     let resultado = valorUsuario * valoresConversao[moeda1][moeda2];
     //alert(valoresConversao[moeda1][moeda2]);
+    //console.log(resultado); > Conferir se está com só 2 casas decimais mesmo
     let paragrafoResultado = document.getElementById("resultado");
-    paragrafoResultado.textContent = resultado
+    paragrafoResultado.textContent = simbolo + " " + resultado.toFixed(2);
 }
 
 function limpar () {
@@ -37,7 +48,6 @@ function limpar () {
     
     let valorEntrada = document.getElementById("valorEntrada");
     valorEntrada.value = "";
-
 }
 
 function inverter () {
