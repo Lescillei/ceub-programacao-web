@@ -30,6 +30,7 @@ document.addEventListener("keydown", function(event){
 }), false;
 
 //Utilizando teclado
+//addEventListener e keydown e keypress > segredo por aí
 let valorUsuario = document.getElementById("valorEntrada");
 valorUsuario.addEventListener("keypress", function(event) {
     //Prevenir ativar default do navegador
