@@ -60,10 +60,11 @@ valorUsuario.addEventListener("keypress", function(event) {
     }
 
     //if(event.ctrlKey == true && event.code == "KeyL") {
+    //    alert("works")
     //    event.preventDefault();
     //    limpar();
     //}
-//
+
     //if (event.key == "Enter") {
     //    alert("oi")
     //    event.preventDefault();
@@ -102,8 +103,8 @@ function converter () {
         valorMoeda2: moeda2,
         valorResultado: resultado
     }
-    //antes: converter objeto JS para JSON
-    localStorage.setItem("historico", objetoResultado);
+    //antes: converter objeto JS para JSON = JSON.stringify()
+    localStorage.setItem("historico", JSON.stringify(objetoResultado));
 }
 
 //Salvar: Histórico de conversão
