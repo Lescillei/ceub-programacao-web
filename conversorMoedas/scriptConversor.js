@@ -25,32 +25,43 @@ botaoConverter.addEventListener("click", converter);
 const botaoLimpar = document.getElementById("botao-limpar");
 botaoLimpar.addEventListener("click", limpar);
 
-document.addEventListener("keydown", function(event){
-    const keyName = 
-}), false;
+const botaoAceitaMensagem = document.getElementById("botao-aceita-mensagem");
+botaoAceitaMensagem.addEventListener("click", aceitarMensagem);
+
+function aceitarMensagem() {
+    const divMensagemUsuario = document.getElementById("mensagem-usuario");
+    divMensagemUsuario.classList.add("oculto");
+}
 
 //Utilizando teclado
 //addEventListener e keydown e keypress > segredo por aí
 let valorUsuario = document.getElementById("valorEntrada");
 valorUsuario.addEventListener("keypress", function(event) {
+    
     //Prevenir ativar default do navegador
     console.log(event);
-    event.preventDefault();
-
-    if(event.ctrlKey == true && event.code == "KeyI") {
-        inverter();
-    }
-
-    if(event.ctrlKey == true && event.code == "KeyL") {
+    //event.preventDefault();
+    if (event.ctrlKey == true && event.key == "L") {
         event.preventDefault();
         limpar();
     }
 
-    if (event.key == "Enter") {
-        alert("oi")
+    if(event.ctrlKey == true && event.code == "KeyI") {
+        
         event.preventDefault();
-        converter();
+        inverter();
     }
+
+    //if(event.ctrlKey == true && event.code == "KeyL") {
+    //    event.preventDefault();
+    //    limpar();
+    //}
+//
+    //if (event.key == "Enter") {
+    //    alert("oi")
+    //    event.preventDefault();
+    //    converter();
+    //}
 
 });
 //console.log(valoresConversao['real']['euro']);
