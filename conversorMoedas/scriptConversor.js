@@ -28,7 +28,15 @@ botaoLimpar.addEventListener("click", limpar);
 const botaoAceitaMensagem = document.getElementById("botao-aceita-mensagem");
 botaoAceitaMensagem.addEventListener("click", aceitarMensagem);
 
+//Sumir ao clicar no botão
 function aceitarMensagem() {
+    const divMensagemUsuario = document.getElementById("mensagem-usuario");
+    divMensagemUsuario.classList.add("oculto");
+    //Salvando no localStorage
+    localStorage.setItem("aceitouCookie", "1");
+}
+console.log(localStorage.getItem("aceitouCookie"))
+if(localStorage.getItem("aceitouCookie") == "1") {
     const divMensagemUsuario = document.getElementById("mensagem-usuario");
     divMensagemUsuario.classList.add("oculto");
 }
@@ -47,7 +55,6 @@ valorUsuario.addEventListener("keypress", function(event) {
     }
 
     if(event.ctrlKey == true && event.code == "KeyI") {
-        
         event.preventDefault();
         inverter();
     }
@@ -88,6 +95,20 @@ function converter () {
     //console.log(resultado); > Conferir se está com só 2 casas decimais mesmo
     let paragrafoResultado = document.getElementById("resultado");
     paragrafoResultado.textContent = simbolo + " " + resultado.toFixed(2);
+
+    let objetoResultado = {
+        valorDoUsuario: valorUsuario,
+        valorMoeda1: moeda1,
+        valorMoeda2: moeda2,
+        valorResultado: resultado
+    }
+    //antes: converter objeto JS para JSON
+    localStorage.setItem("historico", objetoResultado);
+}
+
+//Salvar: Histórico de conversão
+function salvarResultadoNoLocalStorage(resultado) {
+
 }
 
 function limpar () {
