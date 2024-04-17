@@ -1,11 +1,41 @@
+body {
+    background-color: #b0e68d;
+    color: black;
+}
+
 #container {
+    background-color: rgb(235, 196, 112);
     margin-top: 50px;
-    border: 5px solid #aaa;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
     padding: 20px;
     text-align: center;
     width: 600px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 10px;
+}
+
+button {
+    background-color: #5b5b5b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+select {
+    border: none;
+    border-radius: 5px;
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+    margin: bisque;
 }
 
 input, select, button {
@@ -25,6 +55,10 @@ h1, p {
     width: 100%;
     text-align: center;
     background-color: #f0f0f0;
+}
+
+#resultado {
+    font-weight: bold;
 }
 
 #botao-aceita-mensagem {

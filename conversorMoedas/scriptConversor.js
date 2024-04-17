@@ -75,6 +75,10 @@ valorUsuario.addEventListener("keypress", function(event) {
 //console.log(valoresConversao['real']['euro']);
 
 function converter () {
+    //Array
+    let historicoRecuperado = recuperaHistorico();
+
+
     let valorUsuario = document.getElementById("valorEntrada").value;
     let moeda1 = document.getElementById("moeda1").value;
     let moeda2 = document.getElementById("moeda2").value;
@@ -101,21 +105,43 @@ function converter () {
         valorDoUsuario: valorUsuario,
         valorMoeda1: moeda1,
         valorMoeda2: moeda2,
-        valorResultado: resultado
+        valorResultado: resultado.toFixed(2)
     }
     //antes: converter objeto JS para JSON = JSON.stringify()
-    localStorage.setItem("historico", JSON.stringify(objetoResultado));
+    //let objetoResultadoJSON = JSON.stringify(objetoResultado);
+    //localStorage.setItem("historico", objetoResultadoJSON);
+    
+    salvarHistorico(objetoResultado);
+
+}
+
+function recuperaHistorico () {
+    //pegar (get) do localStorage valor da chave historico
+    //localStorage = string > Recupere OBJETO JS (reverter)
+    let historico = localStorage.getItem("historico");
+    
+    if (!historico) {
+        return [];
+    }
+    
+    let historicoObjeto = JSON.parse(historico);
+
+    return historicoObjeto;
+    //Testar = recuperaHistorico no começo do converter
 }
 
 //Salvar: Histórico de conversão
-function salvarResultadoNoLocalStorage(resultado) {
-
+//Recupera > push > array > localStorage
+function salvarHistorico (conversao) {
+    let historico = recuperaHistorico(); //array de objetos, salva conversão no final
+    //array.push(algo); = add ao final do array
+    historico.push(conversao);
+    localStorage.setItem("historico", JSON.stringify(historico));
 }
 
 function limpar () {
     let paragrafoResultado = document.getElementById("resultado");
     paragrafoResultado.textContent = "";
-    
     let valorEntrada = document.getElementById("valorEntrada");
     valorEntrada.value = "";
 }
