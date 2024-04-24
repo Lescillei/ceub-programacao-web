@@ -42,10 +42,32 @@ if(localStorage.getItem("aceitouCookie") == "1") {
 }
 
 
-function buscaConversaoAPI () {
-    fetch("https://economia.awesomeapi.com.br/last/USD-BRL").then(function(response){
-        console.log(response);
+function buscaConversaoAPI (moedaOrigem, moedaDestino) {
+    //Começo é igual, depois que passa as moedas
+    let urlAPI = "https://economia.awesomeapi.com.br/last/";
+    urlAPI = urlAPI + moedaOrigem + "-" + moedaDestino;
+
+    console.log(urlAPI);
+
+    let responseAPI = "";
+
+    fetch(urlAPI)
+        .then(function(response){
+            if (response.status == 200) {
+                console.log("A chamada foi um sucesso!");
+            }
+            return response.json();
     })
+        .then(function(data){
+            responseAPI = data;
+            console.log(data);
+    })
+        .catch(function(error){
+            console.log("ERRO");
+            console.log(error);
+    })
+
+    return responseAPI;
 }
 
 //Utilizando teclado
@@ -82,7 +104,6 @@ valorUsuario.addEventListener("keypress", function(event) {
 //console.log(valoresConversao['real']['euro']);
 
 function converter () {
-    buscaConversaoAPI();
     //Array
     let historicoRecuperado = recuperaHistorico();
 
@@ -90,6 +111,14 @@ function converter () {
     let valorUsuario = document.getElementById("valorEntrada").value;
     let moeda1 = document.getElementById("moeda1").value;
     let moeda2 = document.getElementById("moeda2").value;
+
+    
+    console.log(moeda1);
+    console.log(moeda2);
+
+    //converter valores moeda1 e 2 para valores da API
+    //use console.log = ver o que está sendo retornado com mooeda1/2
+    buscaConversaoAPI("BRL","EUR");
 
     if (moeda1 == moeda2) {
         alert("As moedas são iguais");
