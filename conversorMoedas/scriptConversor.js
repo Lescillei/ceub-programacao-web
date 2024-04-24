@@ -41,6 +41,13 @@ if(localStorage.getItem("aceitouCookie") == "1") {
     divMensagemUsuario.classList.add("oculto");
 }
 
+
+function buscaConversaoAPI () {
+    fetch("https://economia.awesomeapi.com.br/last/USD-BRL").then(function(response){
+        console.log(response);
+    })
+}
+
 //Utilizando teclado
 //addEventListener e keydown e keypress > segredo por aí
 let valorUsuario = document.getElementById("valorEntrada");
@@ -75,6 +82,7 @@ valorUsuario.addEventListener("keypress", function(event) {
 //console.log(valoresConversao['real']['euro']);
 
 function converter () {
+    buscaConversaoAPI();
     //Array
     let historicoRecuperado = recuperaHistorico();
 
