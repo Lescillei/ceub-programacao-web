@@ -16,6 +16,13 @@ const valoresConversao = {
     }
 }
 
+const relacaoNomesMoedas = {
+    real: "BRL",
+    dolar: "USD",
+    euro: "EUR"
+}
+
+
 const botaoInverter = document.getElementById("botao-inverter");
 botaoInverter.addEventListener("click", inverter);
 
@@ -49,7 +56,7 @@ function buscaConversaoAPI (moedaOrigem, moedaDestino) {
 
     console.log(urlAPI);
 
-    let responseAPI = "";
+    let responseAPI;
 
     fetch(urlAPI)
         .then(function(response){
@@ -58,9 +65,13 @@ function buscaConversaoAPI (moedaOrigem, moedaDestino) {
             }
             return response.json();
     })
-        .then(function(data){
-            responseAPI = data;
-            console.log(data);
+    .then(function(data){
+        let objetoEmJSON = JSON.stringify(data);
+        console.log(data[moedaOrigem + moedaDestino]["ask"]); //ask é o fator de conversão
+        console.log(objetoEmJSON)
+        //retornar parâmetro de conversao que está no atributo ask
+        responseAPI = data[moedaOrigem + moedaDestino]["ask"];
+        //return data[moedaOrigem + moedaDestino]["ask"];
     })
         .catch(function(error){
             console.log("ERRO");
@@ -116,9 +127,11 @@ function converter () {
     console.log(moeda1);
     console.log(moeda2);
 
+    console.log(relacaoNomesMoedas[moeda1]);
+    console.log(relacaoNomesMoedas[moeda2]);
+
     //converter valores moeda1 e 2 para valores da API
     //use console.log = ver o que está sendo retornado com mooeda1/2
-    buscaConversaoAPI("BRL","EUR");
 
     if (moeda1 == moeda2) {
         alert("As moedas são iguais");
@@ -129,6 +142,9 @@ function converter () {
         alert ("Valor não suportado");
         return;
     }
+    //converter valores moeda1 e 2 para valores da API
+    //use console.log = ver o que está sendo retornado com mooeda1/2
+    buscaConversaoAPI(relacaoNomesMoedas[moeda1],relacaoNomesMoedas[moeda2]);
 
     let simbolo = valoresConversao[moeda2]["simbolo"];
 
