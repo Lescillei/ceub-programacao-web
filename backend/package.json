@@ -1,0 +1,19 @@
+{
+  "name": "ceub-programacao-web",
+  "version": "1.0.0",
+  "description": "Backend da disciplina de Programação Web",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lescillei/ceub-programacao-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lescillei/ceub-programacao-web/issues"
+  },
+  "homepage": "https://github.com/Lescillei/ceub-programacao-web#readme"
+}
