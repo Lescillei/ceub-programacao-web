@@ -22,10 +22,6 @@ const relacaoNomesMoedas = {
     euro: "EUR"
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 006cfa0 (Adicionando backend ao projeto)
 const botaoInverter = document.getElementById("botao-inverter");
 botaoInverter.addEventListener("click", inverter);
 
@@ -51,10 +47,6 @@ if(localStorage.getItem("aceitouCookie") == "1") {
     divMensagemUsuario.classList.add("oculto");
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 006cfa0 (Adicionando backend ao projeto)
 function buscaConversaoAPI (moedaOrigem, moedaDestino) {
     //Começo é igual, depois que passa as moedas
     let urlAPI = "https://economia.awesomeapi.com.br/last/";
@@ -71,7 +63,6 @@ function buscaConversaoAPI (moedaOrigem, moedaDestino) {
             }
             return response.json();
     })
-<<<<<<< HEAD
     .then(function(data){
         let objetoEmJSON = JSON.stringify(data);
         console.log(data[moedaOrigem + moedaDestino]["ask"]); //ask é o fator de conversão
@@ -82,28 +73,12 @@ function buscaConversaoAPI (moedaOrigem, moedaDestino) {
     })
         .catch(function(error){
             console.log("ERRO");
-=======
-        .then(function(data){
-            let objetoEmJSON = JSON.stringify(data);
-            console.log(data[moedaOrigem + moedaDestino]["ask"]); //ask é o fator de conversão
-            console.log(objetoEmJSON)
-            //retornar parâmetro de conversao que está no atributo ask
-            responseAPI = data[moedaOrigem + moedaDestino]["ask"];
-            //return data[moedaOrigem + moedaDestino]["ask"];
-    })
-        .catch(function(error){
->>>>>>> 006cfa0 (Adicionando backend ao projeto)
             console.log(error);
     })
 
     return responseAPI;
 }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 006cfa0 (Adicionando backend ao projeto)
 //Utilizando teclado
 //addEventListener e keydown e keypress > segredo por aí
 let valorUsuario = document.getElementById("valorEntrada");
@@ -146,7 +121,6 @@ function converter () {
     let moeda1 = document.getElementById("moeda1").value;
     let moeda2 = document.getElementById("moeda2").value;
 
-<<<<<<< HEAD
     
     console.log(moeda1);
     console.log(moeda2);
@@ -156,13 +130,6 @@ function converter () {
 
     //converter valores moeda1 e 2 para valores da API
     //use console.log = ver o que está sendo retornado com mooeda1/2
-=======
-    //console.log(moeda1);
-    //console.log(moeda2);
-
-    //console.log(relacaoNomesMoedas[moeda1]);
-    //console.log(relacaoNomesMoedas[moeda2]);
->>>>>>> 006cfa0 (Adicionando backend ao projeto)
 
     if (moeda1 == moeda2) {
         alert("As moedas são iguais");
@@ -173,16 +140,9 @@ function converter () {
         alert ("Valor não suportado");
         return;
     }
-<<<<<<< HEAD
     //converter valores moeda1 e 2 para valores da API
     //use console.log = ver o que está sendo retornado com mooeda1/2
     buscaConversaoAPI(relacaoNomesMoedas[moeda1],relacaoNomesMoedas[moeda2]);
-=======
-
-    //converter valores moeda1 e 2 para valores da API
-    //use console.log = ver o que está sendo retornado com mooeda1/2
-    let parametrosConversao = buscaConversaoAPI(relacaoNomesMoedas[moeda1],relacaoNomesMoedas[moeda2]);
->>>>>>> 006cfa0 (Adicionando backend ao projeto)
 
     let simbolo = valoresConversao[moeda2]["simbolo"];
 
