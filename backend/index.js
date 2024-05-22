@@ -17,13 +17,38 @@ aplicacao.get('/moedas', (req,res) => {
 
     const moedas = {
         BRL: "real",
-        USD: "dólar",
+        USD: "dolar",
         EUR: "euro"
     }
+
+    res.status(200).json(moedas);
 });
+
+aplicacao.post('/moedas', (req,res) => {
+    res.send("Compatível com Real, Dólar e Euro");
+
+    const moedas = {
+        BRL: "real",
+        USD: "dolar",
+        EUR: "euro"
+    }
+
+    res.status(304).json(moedas);
+})
 
 aplicacao.get('/info', (req,res) => {
     res.send("Informações sobre o sistema")
+
+    const informacoes = {
+        version: "1.0",
+        autor: "Léscillei",
+        update: "Maio de 2024",
+        price: "free",
+        license: "ABC"
+    }
+
+    res.status(200).json(informacoes);
+
 });
 
 aplicacao.get('/disponiveis', (req,res) => {
