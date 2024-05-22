@@ -15,6 +15,7 @@ p {
     border: 10px dotted green;
     border-radius: 50%;
     margin: 50px 20px 8px 30px;
+<<<<<<< HEAD
 }
 
 footer {
@@ -24,4 +25,6 @@ footer {
     width: 100%;
     text-align: center;
     background-color: #ffe0b2;
+=======
+>>>>>>> 006cfa0 (Adicionando backend ao projeto)
 }
