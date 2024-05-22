@@ -1,0 +1,99 @@
+* {
+    --cor-de-fundo: #b0e68d;
+    --cor-de-fonte: #000;
+    --cor-de-container: bisque;
+    --cor-de-botao: #5b5b5b;
+    --cor-de-fonte-de-botao: #fff;
+    --cor-hover-botao: black;
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--cor-de-fonte);
+    font-family: "Playfair Display", serif;
+}
+
+#container {
+    background-color: var(--cor-de-container);
+    margin-top: 50px;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+#historico-conversoes {
+        background-color: var(--cor-de-container);
+        margin-top: 50px;
+        box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        text-align: center;
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+}
+
+button {
+    background-color: var(--cor-de-botao);
+    color: var(--cor-de-fonte-de-botao);
+    border: none;
+    border-radius: 5px;
+    font-family: "Playfair Display", serif;
+
+}
+
+button:hover {
+    background-color: var(--cor-hover-botao);
+    cursor: pointer;
+}
+
+select {
+    border: none;
+    border-radius: 5px;
+    font-family: "Playfair Display", serif;
+
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+    margin: var(--cor-de-container);
+    font-family: "Playfair Display", serif;
+
+}
+
+input, select, button {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 10px;
+}
+
+h1, p {
+    /*font-family: "Playfair Display", serif;*/
+}
+
+#mensagem-usuario {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+#resultado {
+    font-weight: bold;
+}
+
+#botao-aceita-mensagem {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.oculto {
+    display: none;
+}
