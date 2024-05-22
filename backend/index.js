@@ -15,13 +15,13 @@ aplicacao.post('/', (req,res) => {
 aplicacao.get('/moedas', (req,res) => {
     res.send("Compatível com Real, Dólar e Euro");
 
-    const moedas = {
+   /* const moedas = {
         BRL: "real",
         USD: "dolar",
         EUR: "euro"
     }
 
-    res.status(304).json(moedas);
+    res.status(200).json(moedas); */
 });
 
 aplicacao.get('/info', (req,res) => {
@@ -50,6 +50,7 @@ aplicacao.get('/conversao/:moedas', (req,res) => {
     //Fazer processo de conversão no back para retornar no front
     console.log(req.parms);
     conversao = {};
+
     res.status(200).json(conversao);
 
 });
