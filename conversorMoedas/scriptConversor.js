@@ -173,7 +173,7 @@ function converter () {
 
     let simbolo = valoresConversao[moeda2]["simbolo"];
 
-    let resultado = valorUsuario * data[valoresConversao[moeda1][moeda2]];
+    let resultado = valorUsuario * data["fator"];
     //alert(valoresConversao[moeda1][moeda2]);
     //console.log(resultado); > Conferir se está com só 2 casas decimais mesmo
     let paragrafoResultado = document.getElementById("resultado");
