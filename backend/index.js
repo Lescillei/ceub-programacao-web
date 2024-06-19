@@ -1,3 +1,28 @@
+//NÃO BOA PRÁTICA MAS OK, DO SCRIPTCONVERSOR.JS
+const valoresConversao = {
+    real: {
+        euro: 0.19,
+        dolar: 0.20,
+        simbolo: "R$"
+    },
+    dolar: {
+        real: 4.99,
+        euro: 0.92,
+        simbolo: "US$"
+    },
+    euro: {
+        real: 5.40,
+        dolar: 1.08,
+        simbolo: "EU"
+    }
+}
+//Peguei do /moedas para valer em qualquer lugar
+const relacaoMoedas = {
+    BRL: "real",
+    USD: "dolar",
+    EUR: "euro"
+}
+
 const express = require('express');
 //const com instancia da biblioteca express
 const aplicacao = express();
@@ -11,21 +36,31 @@ aplicacao.post('/', (req,res) => {
     res.send("Chamei back com sucesso usando post");
 });
 
-//Criando os endpoints
-aplicacao.get('/moedas', (req,res) => {
-    res.send("Compatível com Real, Dólar e Euro");
-
-   /* const moedas = {
+aplicacao.post('/moedas', (req,res) => {
+    const moedas = {
         BRL: "real",
         USD: "dolar",
         EUR: "euro"
     }
 
-    res.status(200).json(moedas); */
+    res.status(200).json(moedas);
+})
+
+//Criando os endpoints
+aplicacao.get('/moedas', (req,res) => {
+   // res.send("Compatível com Real, Dólar e Euro");
+
+    const moedas = {
+        BRL: "real",
+        USD: "dolar",
+        EUR: "euro"
+    }
+
+    res.status(200).json(moedas); 
 });
 
 aplicacao.get('/info', (req,res) => {
-    res.send("Informações sobre o sistema")
+    //res.send("Informações sobre o sistema")
 
     const informacoes = {
         version: "1.0",
@@ -42,14 +77,27 @@ aplicacao.get('/conversao/:moedas', (req,res) => {
     //processo de conversão
     //na lista de moedas, separada por -, o primeiro da lista será moeda1 e segundo a moeda2
     let moedas = req.params.moedas.split("-");
-    let moeda1 = moedas[0];
-    let moeda2 = moedas[1];
+    //UpperCase para garantir o maiusculo
+    let moeda1 = moedas[0].toUpperCase();
+    let moeda2 = moedas[1].toUpperCase();
 
+    console.log("moeda1 é " + moeda1);
+    console.log("moeda2 é " + moeda2);
+
+    console.log(relacaoMoedas[moeda1]);
+    console.log(relacaoMoedas[moeda2]);
+
+    console.log(valoresConversao[relacaoMoedas[moeda1]][relacaoMoedas[moeda2]])
+
+    let fatorConversao = valoresConversao[relacaoMoedas[moeda1]][relacaoMoedas[moeda2]];
 
 
     //Fazer processo de conversão no back para retornar no front
-    console.log(req.parms);
-    conversao = {};
+    //console.log(req.parms);
+    //var: indice
+    conversao = {
+        fator: fatorConversao
+    };
 
     res.status(200).json(conversao);
 
