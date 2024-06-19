@@ -173,13 +173,13 @@ function converter () {
     //console.log(resultado); > Conferir se está com só 2 casas decimais mesmo
     let paragrafoResultado = document.getElementById("resultado");
     paragrafoResultado.textContent = simbolo + " " + resultado.toFixed(2);
-
+*/
     let objetoResultado = {
         valorDoUsuario: valorUsuario,
         valorMoeda1: moeda1,
         valorMoeda2: moeda2,
         valorResultado: resultado.toFixed(2)
-    }*/
+    }
     //antes: converter objeto JS para JSON = JSON.stringify()
     //let objetoResultadoJSON = JSON.stringify(objetoResultado);
     //localStorage.setItem("historico", objetoResultadoJSON);
