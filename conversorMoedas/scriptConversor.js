@@ -1,3 +1,5 @@
+//const { json } = require("body-parser");
+
 const valoresConversao = {
     real: {
         euro: 0.19,
@@ -48,17 +50,21 @@ if(localStorage.getItem("aceitouCookie") == "1") {
 }
 //FAZENDO PRÓPRIA API
 function buscaConversaoMinhaAPI (moedaOrigem, moedaDestino) {
-    let urlAPI = "https://localhost:4000/conversao/";
+    let urlAPI = "http://localhost:4000/conversao/";
 
     //URL base, concatena com URL moedas de origem e destino
     urlAPI = urlAPI + moedaOrigem + "-" +moedaDestino;
 
-    //chamada pro backend
-    fetch(urlAPI).then(function(response){
+    //chamada pro backend return para a função
+    return fetch(urlAPI).then(function(response){
         if(response.status == 200) {
-            console.log("Chamda da minha API feita com sucesso");
+            console.log("Chamada da minha API feita com sucesso");
         }
+        console.log(response);
         return response.json();
+    }).then(function(data){
+        console.log("Estou no segundo then");
+        return JSON.stringify(data);
     }).catch(function(error){
         console.log("Deu erro!");
         console.log(error);
@@ -160,15 +166,14 @@ function converter () {
         return;
     }
 
-    buscaConversaoMinhaAPI(relacaoNomesMoedas[moeda1],relacaoNomesMoedas[moeda2]);
-
-    //converter valores moeda1 e 2 para valores da API
-    //use console.log = ver o que está sendo retornado com mooeda1/2
-    /*buscaConversaoAPI(relacaoNomesMoedas[moeda1],relacaoNomesMoedas[moeda2]);
+    buscaConversaoMinhaAPI(relacaoNomesMoedas[moeda1],relacaoNomesMoedas[moeda2]).then(function(data){
+        //console.log("O data da minha função de busca é => "+ data);
+        //console.log(JSON.parse(data));
+        data = JSON.parse(data);
 
     let simbolo = valoresConversao[moeda2]["simbolo"];
 
-    let resultado = valorUsuario * valoresConversao[moeda1][moeda2];
+    let resultado = valorUsuario * data[valoresConversao[moeda1][moeda2]];
     //alert(valoresConversao[moeda1][moeda2]);
     //console.log(resultado); > Conferir se está com só 2 casas decimais mesmo
     let paragrafoResultado = document.getElementById("resultado");
@@ -185,7 +190,7 @@ function converter () {
     //localStorage.setItem("historico", objetoResultadoJSON);
     
     salvarHistorico(objetoResultado);
-*/
+});
 } 
 
 function recuperaHistorico () {
