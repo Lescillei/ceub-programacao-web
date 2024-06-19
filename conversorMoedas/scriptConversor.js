@@ -160,11 +160,11 @@ function converter () {
         return;
     }
 
-    
+    buscaConversaoMinhaAPI(relacaoNomesMoedas[moeda1],relacaoNomesMoedas[moeda2]);
+
     //converter valores moeda1 e 2 para valores da API
     //use console.log = ver o que está sendo retornado com mooeda1/2
-    /* COMENTA PARA TESTE
-    buscaConversaoAPI(relacaoNomesMoedas[moeda1],relacaoNomesMoedas[moeda2]);
+    /*buscaConversaoAPI(relacaoNomesMoedas[moeda1],relacaoNomesMoedas[moeda2]);
 
     let simbolo = valoresConversao[moeda2]["simbolo"];
 
@@ -173,7 +173,7 @@ function converter () {
     //console.log(resultado); > Conferir se está com só 2 casas decimais mesmo
     let paragrafoResultado = document.getElementById("resultado");
     paragrafoResultado.textContent = simbolo + " " + resultado.toFixed(2);
-*/
+
     let objetoResultado = {
         valorDoUsuario: valorUsuario,
         valorMoeda1: moeda1,
@@ -185,7 +185,7 @@ function converter () {
     //localStorage.setItem("historico", objetoResultadoJSON);
     
     salvarHistorico(objetoResultado);
-
+*/
 } 
 
 function recuperaHistorico () {

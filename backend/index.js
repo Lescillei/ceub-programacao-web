@@ -1,3 +1,10 @@
+const express = require('express');
+const cors = require('cors');
+//const com instancia da biblioteca express
+const aplicacao = express();
+const port = 4000;
+
+aplicacao.use(cors());
 //NÃO BOA PRÁTICA MAS OK, DO SCRIPTCONVERSOR.JS
 const valoresConversao = {
     real: {
@@ -22,11 +29,6 @@ const relacaoMoedas = {
     USD: "dolar",
     EUR: "euro"
 }
-
-const express = require('express');
-//const com instancia da biblioteca express
-const aplicacao = express();
-const port = 4000;
 
 aplicacao.get('/', (req, res) => {
     res.send("Chamei o backend com sucesso");
