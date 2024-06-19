@@ -46,6 +46,25 @@ if(localStorage.getItem("aceitouCookie") == "1") {
     const divMensagemUsuario = document.getElementById("mensagem-usuario");
     divMensagemUsuario.classList.add("oculto");
 }
+//FAZENDO PRÓPRIA API
+function buscaConversaoMinhaAPI (moedaOrigem, moedaDestino) {
+    let urlAPI = "https://localhost:4000/conversao/";
+
+    //URL base, concatena com URL moedas de origem e destino
+    urlAPI = urlAPI + moedaOrigem + "-" +moedaDestino;
+
+    //chamada pro backend
+    fetch(urlAPI).then(function(response){
+        if(response.status == 200) {
+            console.log("Chamda da minha API feita com sucesso");
+        }
+        return response.json();
+    }).catch(function(error){
+        console.log("Deu erro!");
+        console.log(error);
+    });
+}
+
 
 function buscaConversaoAPI (moedaOrigem, moedaDestino) {
     //Começo é igual, depois que passa as moedas
@@ -140,8 +159,11 @@ function converter () {
         alert ("Valor não suportado");
         return;
     }
+
+    
     //converter valores moeda1 e 2 para valores da API
     //use console.log = ver o que está sendo retornado com mooeda1/2
+    /* COMENTA PARA TESTE
     buscaConversaoAPI(relacaoNomesMoedas[moeda1],relacaoNomesMoedas[moeda2]);
 
     let simbolo = valoresConversao[moeda2]["simbolo"];
@@ -157,14 +179,14 @@ function converter () {
         valorMoeda1: moeda1,
         valorMoeda2: moeda2,
         valorResultado: resultado.toFixed(2)
-    }
+    }*/
     //antes: converter objeto JS para JSON = JSON.stringify()
     //let objetoResultadoJSON = JSON.stringify(objetoResultado);
     //localStorage.setItem("historico", objetoResultadoJSON);
     
     salvarHistorico(objetoResultado);
 
-}
+} 
 
 function recuperaHistorico () {
     //pegar (get) do localStorage valor da chave historico
